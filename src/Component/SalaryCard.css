@@ -1,0 +1,62 @@
+.employees {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.delete_btn {
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: red;
+  border: 2px solid red;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  padding: 1px;
+}
+
+.delete-btn svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.bonus_btn {
+  background: transparent;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  /* color: red; */
+  border: 2px solid darkblue;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  padding: 1px;
+}
+
+.bonus-btn svg {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+.info_card {
+  background-color: darkslategray;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid lightslategray;
+  border-radius: 5px;
+  padding: 0 40px;
+}
