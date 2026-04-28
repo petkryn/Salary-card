@@ -29,12 +29,22 @@ export class App extends Component {
       name: name,
       salary: salary,
       increase: false,
-      id: this.state.data.length + 1,
+      id: new Date().getTime(),
     };
     this.setState(({ data }) => {
       return { data: [...data, newUser] };
     });
   };
+
+  onDelete = (id) => {
+    this.setState(({ data }) => {
+      return { data: data.filter((item) => item.id !== id) };
+    });
+  };
+
+  onIncrease = (id) => {
+    
+  }
 
   render() {
     const { data } = this.state;
@@ -45,7 +55,7 @@ export class App extends Component {
       <div className="container">
         <Header total={total} increased={increased} />
         {/* <EmployeeSearch /> */}
-        <SalaryList data={data} />
+        <SalaryList data={data} onDelete={this.onDelete} />
         <EmployeesAddForm onAdd={this.onAdd} />
       </div>
     );

@@ -7,7 +7,7 @@ export class SalaryCard extends Component {
   }
 
   render() {
-    const { name, salary, increase, id } = this.props;
+    const { name, salary, increase, id, onDelete } = this.props;
     return (
       <li className="info_card">
         <div className="employees">
@@ -17,7 +17,11 @@ export class SalaryCard extends Component {
         </div>
 
         <div className="buttons">
-          <button type="button" className="delete_btn">
+          <button
+            type="button"
+            className="delete_btn"
+            onClick={() => onDelete(id)}
+          >
             <svg
               width="20"
               height="20"

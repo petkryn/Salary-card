@@ -10,7 +10,14 @@ export class SalaryList extends Component {
     const mapData = this.props.data.map((item) => {
       const { name, salary, increase, id } = item;
       return (
-        <SalaryCard key={id} name={name} salary={salary} increase={increase} />
+        <SalaryCard
+          onDelete={this.props.onDelete}
+          id={id}
+          key={id}
+          name={name}
+          salary={salary}
+          increase={increase}
+        />
       );
     });
 
