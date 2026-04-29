@@ -7,9 +7,9 @@ export class SalaryCard extends Component {
   }
 
   render() {
-    const { name, salary, increase, id, onDelete } = this.props;
+    const { name, salary, increase, id, onDelete, onIncrease } = this.props;
     return (
-      <li className="info_card">
+      <li className={`info_card ${increase ? "active" : ""}`}>
         <div className="employees">
           <p>{name}</p>
           <p>{salary}</p>
@@ -50,7 +50,11 @@ export class SalaryCard extends Component {
             </svg>
           </button>
 
-          <button type="button" className="bonus_btn">
+          <button
+            type="button"
+            className="bonus_btn"
+            onClick={() => onIncrease(id)}
+          >
             <svg
               viewBox="0 0 100 100"
               width="20"

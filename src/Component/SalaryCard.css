@@ -37,7 +37,6 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  /* color: red; */
   border: 2px solid darkblue;
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -59,4 +58,9 @@
   border: 2px solid lightslategray;
   border-radius: 5px;
   padding: 0 40px;
+}
+
+.active {
+  background-color: #d4edda;
+  color: black;
 }

@@ -43,8 +43,17 @@ export class App extends Component {
   };
 
   onIncrease = (id) => {
-    
-  }
+    this.setState(({ data }) => {
+      const newData = data.map((item) => {
+        if (item.id === id) {
+          return { ...item, increase: !item.increase };
+        }
+        return item;
+      });
+
+      return { data: newData };
+    });
+  };
 
   render() {
     const { data } = this.state;
@@ -55,7 +64,11 @@ export class App extends Component {
       <div className="container">
         <Header total={total} increased={increased} />
         {/* <EmployeeSearch /> */}
-        <SalaryList data={data} onDelete={this.onDelete} />
+        <SalaryList
+          data={data}
+          onDelete={this.onDelete}
+          onIncrease={this.onIncrease}
+        />
         <EmployeesAddForm onAdd={this.onAdd} />
       </div>
     );

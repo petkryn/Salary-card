@@ -12,6 +12,7 @@ export class SalaryList extends Component {
       return (
         <SalaryCard
           onDelete={this.props.onDelete}
+          onIncrease={this.props.onIncrease}
           id={id}
           key={id}
           name={name}
