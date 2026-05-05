@@ -21,6 +21,8 @@ export class App extends Component {
         { name: "Sophia L.", salary: 900, increase: false, id: 9 },
         { name: "James T.", salary: 1600, increase: true, id: 10 },
       ],
+
+      term: "",
     };
   }
 
@@ -55,17 +57,36 @@ export class App extends Component {
     });
   };
 
+  onSearch = (e) => {
+    const wordElement = e.target.value;
+
+    this.setState(({ term }) => {
+      return { term: wordElement };
+    });
+  };
+
+  onFilter = (data, term) => {
+    if (!term.trim().length) {
+      return data;
+    }
+
+    return data.filter(
+      (element) => element.name.toLowerCase().indexOf(term.toLowerCase()) > -1,
+    );
+  };
+
   render() {
-    const { data } = this.state;
+    const { data, term } = this.state;
     const total = data.length;
     const increased = data.filter((item) => item.increase).length;
+    const filteredData = this.onFilter(data, term);
 
     return (
       <div className="container">
         <Header total={total} increased={increased} />
-        {/* <EmployeeSearch /> */}
+        <EmployeeSearch onSearch={this.onSearch} />
         <SalaryList
-          data={data}
+          data={filteredData}
           onDelete={this.onDelete}
           onIncrease={this.onIncrease}
         />

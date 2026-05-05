@@ -1,38 +1,25 @@
 import { Component } from "react";
+import "./EmployeeSearch.css";
 
 export class EmployeeSearch extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      inputValue: "",
-    };
   }
-
-  onUpdateSearch = (e) => {
-    const value = e.target.value;
-
-    this.setState({
-      inputValue: value,
-    });
-
-  };
-
   render() {
-    const { inputValue } = this.state;
-
+    const { onSearch } = this.props;
     return (
-      <div>
+      <div className="search_card">
         <input
+          className="input_search"
           type="text"
           placeholder="Пошук співробітника"
-          value={inputValue}
-          onChange={this.onUpdateSearch}
+          onChange={(e) => onSearch(e)}
         />
 
-        <div>
-          <button>Усі</button>
-          <button>на підвищення</button>
-          <button>дохід більше 1000$</button>
+        <div className="buttons">
+          <button className="input_btn-color">Усі</button>
+          <button className="input_btn">на підвищення</button>
+          <button className="input_btn">дохід більше 1000$</button>
         </div>
       </div>
     );
